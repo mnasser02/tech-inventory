@@ -1,0 +1,28 @@
+extends layout
+
+
+block content
+    h2= title
+    form(method='POST' action='')
+        label(for='item-name') Name: 
+        input#item-name(type='text',placeholder='DELL G3579' name='name' value=(undefined===item ? '' : item.name))
+        label(for='item-desc') Description: 
+        textarea#item-desc(type='textarea'
+        placeholder='Dell Gaming Laptop G3579-5941BLK-PUS G3 15 3579 - 15.6" Full HD IPS Anti-Glare Display - 8th Gen Intel i5 Processor - 8GB DDR4 - 128GB SSD+1TB HDD - NVIDIA GeForce GTX 1050 4GB, Windows 10 64bit' 
+        name='description') #{undefined===item ? '' : item.description}
+        label(for='price') Price:
+        input#price(type='number' placeholder='999' name='price' value=(undefined===item ? '' : item.price))
+        label(for='count') Amount to add:
+        input#count(type='number' placeholder='5' name='stock_count' value=(undefined===item ? '' : item.stock_count))
+        select(type='select' placeholder='Select category' name="category")
+            option(value='' selected disabled hidden) --Select category--
+            each category in categories 
+                if item && item.category
+                    option(value=category._id selected=(category._id.toString()===item.category._id.toString() ? 'selected' : false)) #{category.name}
+                else
+                    option(value=category._id) #{category.name}
+        button(type='submit') Submit
+    if errors
+        ul
+        for error in errors
+            li!= error.msg

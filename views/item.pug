@@ -1,0 +1,14 @@
+extends layout 
+
+
+block content
+    h2= title
+    dl 
+        each item in item_list
+            dt
+                a(href=item.url)
+                    strong= item.name
+            dd= item.description
+        else 
+            p No items in stock
+    

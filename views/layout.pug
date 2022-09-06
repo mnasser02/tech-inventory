@@ -1,0 +1,25 @@
+doctype html
+html
+    head
+        title= title
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+    body
+        header
+            h1 Tech Stock
+        ul.sidebar-nav
+            li
+                a(href='/category') Home
+            li
+                a(href='/category/items') Display all items available
+            li
+                a(href='/category/item/create') Create new item
+            li
+                a(href='/category/create') Create new category 
+            li
+                a(href='/about') About
+
+        .main-content
+            block content
+        

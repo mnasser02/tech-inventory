@@ -1,0 +1,17 @@
+extends layout 
+
+
+block content 
+    h2= item.name
+    p
+        em included in #{item.category.name.toUpperCase()}
+    h3= item.price + '$'
+    p= item.description
+    p
+        strong Amount available in stock: 
+        |#{item.stock_count}
+    hr
+    p
+        a(href=item.url+'/delete') Delete item
+    p
+        a(href=item.url+'/update') Update item
