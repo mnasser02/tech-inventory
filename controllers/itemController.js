@@ -108,6 +108,39 @@ exports.item_update_get = (req, res, next) => {
     }
   );
 };
-exports.item_update_post = (req, res) => {
-  res.send("NOT IMPLEMENTED: item update POST");
-};
+exports.item_update_post = [
+  body("name", "Name must not be empty").trim().isLength({ min: 1 }).escape(),
+  body("description", "Description must not be empty")
+    .trim()
+    .isLength({ min: 1 })
+    .escape(),
+  body("price", "Price must not be empty").trim().isLength({ min: 1 }).escape(),
+  body("stock_count", "Amount of added item must not be empty")
+    .trim()
+    .isLength({ min: 1 })
+    .escape(),
+  body("category", "Select category").isLength({ min: 1 }),
+  (req, res, next) => {
+    const errors = validationResult(req);
+    const item = new Item({
+      name: req.body.name,
+      description: req.body.description,
+      price: req.body.price,
+      stock_count: req.body.stock_count,
+      category: req.body.category,
+      _id: req.params.id, //This is required, or a new ID will be assigned
+    });
+    if (!errors.isEmpty()) {
+      res.render("item_form", {
+        title: "Update item",
+        item,
+        errors: errors.array(),
+      });
+    } else {
+      Item.findByIdAndUpdate(req.params.id, item, (err, theitem) => {
+        if (err) return next(err);
+        res.redirect(theitem.url);
+      });
+    }
+  },
+];

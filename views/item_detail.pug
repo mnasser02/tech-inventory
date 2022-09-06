@@ -4,7 +4,8 @@ extends layout
 block content 
     h2= item.name
     p
-        em included in #{item.category.name.toUpperCase()}
+        em included in  
+        a(href=item.category.url)= item.category.name.toUpperCase()
     h3= item.price + '$'
     p= item.description
     p
