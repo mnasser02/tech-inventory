@@ -1,2 +1,3 @@
 # tech-stock
-A project to practice CRUD application building using the MVC architecture
+
+A project to practice CRUD application building in the nodejs environment and express applying the MVC architecture.
