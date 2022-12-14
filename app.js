@@ -49,4 +49,6 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-module.exports = app;
+app.listen(process.env.PORT || 3000, () => {
+  console.log("backend server is running");
+});
