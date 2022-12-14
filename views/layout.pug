@@ -6,20 +6,18 @@ html
         meta(name='viewport', content='width=device-width, initial-scale=1')
         link(rel='stylesheet', href='/stylesheets/style.css')
     body
-        header
-            h1 Tech Stock
-        ul.sidebar-nav
-            li
-                a(href='/category') Home
-            li
-                a(href='/category/items') Display all items available
-            li
-                a(href='/category/item/create') Create new item
-            li
-                a(href='/category/create') Create new category 
-            li
-                a(href='/about') About
-
+        div
+            header
+                h1 Tech Stock
+            ul.sidebar-nav
+                li
+                    a(href='/category') Home
+                li
+                    a(href='/category/item/create') Create new item
+                li
+                    a(href='/category/create') Create new category 
+                li
+                    a(href='/category/items') Display all items
         .main-content
             block content
         

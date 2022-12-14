@@ -4,7 +4,7 @@ extends layout
 block content
     h2= category.name
     p= category.description 
-    dl
+    dl.item
         each item in category_items
             dt
                 a(href=item.url)

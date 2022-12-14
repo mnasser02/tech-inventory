@@ -1,10 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "VT323", monospace;
+  margin: auto 4rem;
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  justify-content: space-between;
+}
+
+h1 {
+  color: #cc0000;
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 3rem;
+  color: #ff6600;
+  margin: 1rem 0;
+}
+
+h3 {
+  font-size: 2rem;
+  margin-bottom: 0;
+  /* text-align: center; */
+}
+p,
+.item,
+dd {
+  font-family: "Georgia";
+  color: #006699;
+  font-size: 1.1rem;
+  margin-top: 0.8rem;
+  width: 80%;
+}
+
+ul {
+  list-style-type: none;
+  display: grid;
+  justify-content: space-around;
+  gap: 1rem;
+  width: 80%;
+  margin: 0 auto;
+  grid-template-columns: repeat(4, auto);
+}
+
+li {
+  color: #ff9933;
+}
+a {
+  color: #ff9933;
+  text-decoration: none;
 }
 
 .sidebar-nav {
-  margin-top: 20px;
-  padding: 0;
-  list-style: none;
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  grid-template-columns: auto;
+  justify-content: left;
+}
+
+dd {
+  margin: 1rem;
+}
+dt > a {
+  color: #cc0000;
+  font-size: 1.4rem;
+  font-family: "VT323", monospace;
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+form > * {
+  margin: 0.3rem;
+}
+
+@media (max-width: 900px) {
+  html {
+    font-size: 14px;
+  }
+  ul {
+    grid-template-columns: repeat(3, auto);
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 12px;
+  }
+  ul {
+    grid-template-columns: auto;
+  }
 }
